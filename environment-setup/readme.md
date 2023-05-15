@@ -12,7 +12,7 @@ Contains the scripts needs to set up the environment dependencies the services h
 - deploy the tracing services
 
 ```sh 
-./start-environment.sh
+source ./start-environment.sh
 ```
 
 - test
