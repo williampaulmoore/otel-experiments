@@ -5,7 +5,7 @@
   "description": "Ingest api server",
   "scripts": {
     "build": "tsc",
-    "dev": "ts-node --esm --transpile-only -r dotenv/config src/server.ts"
+    "dev": "NODE_OPTIONS='--experimental-specifier-resolution=node' ts-node --esm --transpile-only -r dotenv/config src/server.ts"
   },
   "keywords": [],
   "author": "",
