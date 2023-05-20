@@ -1,10 +1,15 @@
 {
     "compilerOptions": {
         "target": "es2020",
-        "module": "commonjs",
+        "allowJs": true,
+        "checkJs": true,
+        "module": "esnext",
+        "moduleResolution": "node",
         "outDir": "dist",
-        "strict": true,
         "esModuleInterop": true
+    },
+    "ts-node": {
+        "esm": true
     },
     "include": ["src"]
 }
