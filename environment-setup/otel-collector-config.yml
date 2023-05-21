@@ -11,6 +11,8 @@ processors:
 exporters:
   logging:
     loglevel: debug
+  prometheus:
+    endpoint: localhost:9091  # Configure prometeus to scrape from this endpoint
   jaeger:
     endpoint: localhost:14250
     tls:
@@ -18,6 +20,9 @@ exporters:
 
 service:
   pipelines:
+    metrics:
+      receivers: [otlp]
+      exporters: [logging, prometheus]
     traces:
       receivers: [otlp]
-      exporters: [logging, jaeger]
+      exporters: [jaeger]

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if docker ps --format "{{.Names}}" | grep -q "prometheus"; then
+    docker stop prometheus
+fi
+
 if docker ps --format "{{.Names}}" | grep -q "postgres"; then
     docker stop postgres
 fi
