@@ -1,6 +1,7 @@
 import { BasicTracerProvider, ConsoleSpanExporter, SimpleSpanProcessor } from '@opentelemetry/sdk-trace-base';
 import { Resource } from '@opentelemetry/resources';
 import { SemanticResourceAttributes } from '@opentelemetry/semantic-conventions';
+import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
 import { trace } from '@opentelemetry/api';
 import { Context, Next } from 'koa';
 
@@ -10,6 +11,10 @@ const traceProvider = new BasicTracerProvider({
     }),
 });
 
+const exporter = new OTLPTraceExporter({
+});
+
+traceProvider.addSpanProcessor(new SimpleSpanProcessor(exporter));
 traceProvider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
 traceProvider.register();
 
