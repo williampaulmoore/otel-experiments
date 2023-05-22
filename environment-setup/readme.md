@@ -4,6 +4,7 @@ Contains the scripts needs to set up the environment dependencies the services h
 
 - otel-collector  ,accepts open telementry signals
 - jaeger          ,distributed tracing
+- prometheus      ,metrics
 
 
 ## Getting started
@@ -23,6 +24,8 @@ $GOPATH/bin/tracegen -otlp-insecure -duration 2s
 
 N. This will send tests traces to the open-telemetry collector.
 N. Jaeger can be accessed on: http://localhost:16686
+N. Prometheus can be accessed on: http://localhost:9090
+
 N. tracegen can be installed with:
 
 ```sh
