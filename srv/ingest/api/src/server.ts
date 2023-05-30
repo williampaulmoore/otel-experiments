@@ -1,6 +1,7 @@
 import { env } from '../env.mjs';
 import Koa from 'koa';
 import { OtelTracing, OtelMetrics } from './otel.js';
+import { FluentdLogging } from './fluentd';
 import router from './router';
 import { notfound } from './notfound';
 
@@ -8,6 +9,7 @@ const app = new Koa();
 
 app.use(OtelTracing);
 app.use(OtelMetrics);
+app.use(FluentdLogging);
 app.use(router.routes());
 app.use(router.allowedMethods());
 app.use(notfound);

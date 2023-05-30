@@ -6,6 +6,7 @@ import { trace } from '@opentelemetry/api';
 import { MeterProvider, PeriodicExportingMetricReader } from '@opentelemetry/sdk-metrics';
 import { OTLPMetricExporter } from '@opentelemetry/exporter-metrics-otlp-http';
 import { Context, Next } from 'koa';
+import { asyncLocalStorage } from './asyncStorage';
 
 
 const resouce = new Resource({
@@ -26,10 +27,13 @@ traceProvider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()
 traceProvider.register();
 
 export const OtelTracing = async (ctx: Context, next: Next) => {
-    // t(wpm). Can we add the tracer to the context?
+    // t(wpm). Can we create child spans?
     const tracer = trace.getTracer('default');
     const span = tracer.startSpan(ctx.path);
-    await next();
+
+    asyncLocalStorage.run( span, async () => {
+        await next();
+    });
     span.end();
 }
 
