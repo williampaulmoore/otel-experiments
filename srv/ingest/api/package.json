@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "observability-otel-fluentd": "workspace:*",
     "@opentelemetry/api": "^1.4.1",
     "@opentelemetry/exporter-metrics-otlp-http": "^0.39.1",
     "@opentelemetry/exporter-trace-otlp-http": "^0.39.1",
