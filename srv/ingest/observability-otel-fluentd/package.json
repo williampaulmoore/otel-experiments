@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "name": "observability-otel-fluentd",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Observability utilities",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rm -rf dist && tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.0.2"
+  }
+}
