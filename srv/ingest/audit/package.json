@@ -1,8 +1,8 @@
 {
-    "name": "permissions",
+    "name": "audit",
     "type": "module",
     "version": "1.0.0",
-    "description": "Permissions server",
+    "description": "audit service",
     "scripts": {
         "build": "tsc",
         "dev": "NODE_OPTIONS='--experimental-specifier-resolution=node' ts-node --esm --transpile-only -r dotenv/config src/server.ts"

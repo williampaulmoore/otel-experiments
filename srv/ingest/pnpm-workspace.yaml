@@ -1,5 +1,5 @@
 packages:
   - 'ui'
   - 'api'
-  - 'permissions'
+  - 'audit'
   - 'observability-otel-fluentd'
